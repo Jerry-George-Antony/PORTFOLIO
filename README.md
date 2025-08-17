@@ -17,4 +17,4 @@ This is my personal **portfolio website**, designed to showcase my:
 - Resume download button
 
 Live Website
-[Click here to view my portfolio](https://your-username.github.io/portfolio/)
+[Click here to view my portfolio]([(https://jerry-george-antony.github.io/PORTFOLIO/])
