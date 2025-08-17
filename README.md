@@ -1,30 +1,20 @@
-Jerry George Antony - Portfolio Website
+Jerry George Antony - Portfolio
 
-This is my personal Portfolio Website built with HTML, CSS, and JavaScript.
-It highlights my projects, skills, education, internships, and ways to connect with me.
+This is my personal **portfolio website**, designed to showcase my:
+- 🎓 Education & Timeline
+- 💻 Projects
+- 🛠 Skills (Technical & Non-Technical)
+- 📌 Internships
+- 👨‍💼 Positions of Responsibility
+- 📞 Contact Information
 
-🔗 Live Portfolio: https://Jerry-George-Antony.github.io/portfolio
+## Features
+- Responsive design (works on desktop & mobile)
+- Sidebar navigation
+- Typing animation in banner
+- Expandable project image panels
+- Scroll-to-top button
+- Resume download button
 
-✨ Features
-
-🎨 Modern dark theme design
-
-📌 Sidebar navigation with smooth scrolling
-
-⌨️ Typing animation banner with my roles
-
-🗂 Projects with collapsible image galleries
-
-🛠 Skills section (Technical & Non-Technical)
-
-🎓 Timeline for education & internships
-
-📄 Resume button (direct access to my CV)
-
-⬆️ Scroll-to-top button
-
-📧 Email: jerryantony46@gmail.com
-
-🔗 LinkedIn: linkedin.com/in/jerry-george-antony
-
-💡 This website is hosted using GitHub Pages so it can be accessed anytime from the above link.
+Live Website
+[Click here to view my portfolio](https://your-username.github.io/portfolio/)
