@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jerry George Antony - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
+  <!-- Hamburger Button -->
+  <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
+    ☰
+  </div>
+
   <!-- Sidebar -->
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar" aria-hidden="true">
+    <div class="close-btn" id="closeBtn" aria-label="Close menu" role="button" tabindex="0">✖</div>
     <h2>Menu</h2>
     <nav>
       <a href="#about">About</a>
@@ -21,6 +27,9 @@
       <a href="#contact">Contact</a>
     </nav>
   </aside>
+
+  <!-- Dim overlay for mobile when menu is open -->
+  <div id="overlay"></div>
 
   <!-- Main Content -->
   <main class="content">
@@ -135,19 +144,18 @@
   </main>
 
   <!-- Scroll to Top -->
-  <div id="scrollTop">
+  <div id="scrollTop" aria-label="Scroll to top" role="button" tabindex="0">
     <span>↑</span>
   </div>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img">
-    <a class="prev">&#10094;</a>
-    <a class="next">&#10095;</a>
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <span class="close" aria-label="Close image">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="">
+    <a class="prev" aria-label="Previous image">&#10094;</a>
+    <a class="next" aria-label="Next image">&#10095;</a>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
