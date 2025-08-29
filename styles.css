@@ -1,6 +1,8 @@
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
   font-family: Arial, sans-serif;
   background: #111;
@@ -15,6 +17,8 @@ body {
   padding: 20px;
   position: fixed;
   height: 100%;
+  transition: transform 0.35s cubic-bezier(.22,.61,.36,1), box-shadow 0.35s ease;
+  will-change: transform;
 }
 .sidebar h2 {
   color: #00e6c3;
@@ -34,6 +38,29 @@ body {
   letter-spacing: 1px;
 }
 
+/* Close Button inside Sidebar */
+.close-btn {
+  display: none;
+  font-size: 26px;
+  color: #00e6c3;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+/* Overlay (mobile) */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(1px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 999; /* just below sidebar (1000 in mobile) */
+}
+
 /* Content */
 .content {
   margin-left: 260px;
@@ -48,6 +75,7 @@ body {
   padding: 80px 20px;
   border-radius: 12px;
   margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 .banner .name {
   font-size: 38px;
@@ -68,9 +96,12 @@ body {
   font-weight: bold;
   border-radius: 6px;
   text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 .resume-btn:hover {
   background: #00bfa5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 /* Sections */
@@ -106,9 +137,10 @@ section p, section li {
   margin-bottom: 15px;
   border-radius: 8px;
   transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 .project-card:hover {
-  transform: scale(1.02);
+  transform: translateY(-3px);
   box-shadow: 0px 0px 10px #00e6c3;
 }
 .project-header {
@@ -170,16 +202,20 @@ section p, section li {
   font-size: 22px;
   cursor: pointer;
   box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  z-index: 950;
 }
 #scrollTop:hover {
   background: #b71c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 /* Lightbox */
 .lightbox {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 1200;
   padding-top: 60px;
   left: 0; top: 0;
   width: 100%; height: 100%;
@@ -210,3 +246,66 @@ section p, section li {
 }
 .prev { left: 10px; }
 .next { right: 10px; }
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  color: #00e6c3;
+  background: #1c1c1c;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* Reveal on scroll (subtle) */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .content { margin-left: 240px; padding: 24px; }
+}
+
+@media (max-width: 768px) {
+  body { flex-direction: column; }
+
+  .hamburger { display: block; }
+
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%;
+    width: 78%;
+    max-width: 320px;
+    z-index: 1000;
+    transform: translateX(-100%);
+    box-shadow: none;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 10px 0 30px rgba(0,0,0,0.45);
+  }
+  .sidebar.open .close-btn { display: block; }
+
+  /* Show overlay when sidebar is open */
+  .sidebar.open ~ #overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .content { margin-left: 0; padding: 20px; }
+
+  .skills-container { flex-direction: column; gap: 20px; }
+
+  .project-images img { width: 100%; margin: 8px 0; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
