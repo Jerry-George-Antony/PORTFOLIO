@@ -1,5 +1,5 @@
 // Typing Effect
-const text = ["B.Tech ECE Graduate", "Embedded Systems Engineer", "Programmer"];
+const text = ["B.Tech ECE Graduate", "CII Certified Engineer", "Control Instrumentation", "Programmer"];
 let count = 0, index = 0, currentText = "", letter = "";
 (function type(){
   if(count === text.length) count = 0;
@@ -141,3 +141,4 @@ if ("IntersectionObserver" in window) {
   // Fallback: show all if IO not supported
   toReveal.forEach(el => el.classList.add("in-view"));
 }
+
